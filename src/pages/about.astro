@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const pageTitle = "About Me";
+const titleh2 = "My Astro Journey";
 const identity = {
     firstName: "Sarah",
     country: "Canada",
@@ -14,23 +15,22 @@ const happy = true;
 const finished = true;
 const goal = 3;
 ---
-<BaseLayout pageTitle={pageTitle}>
-    <h2>... and my new Astro site!</h2>
-
+<BaseLayout pageTitle={pageTitle} titleh2={titleh2}>
+    <h2 class="font-bold p-5 text-2xl">{titleh2}</h2>
     <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
 
     <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
     <p>Here are a few facts about me:</p>
-    <ul>
-        <li>My name is {identity.firstName}.</li>
-        <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+    <ul class="px-7">
+        <li class="text-orange font-bold list-inside list-disc">My name is {identity.firstName}.</li>
+        <li class="text-orange font-bold list-inside list-disc">I live in {identity.country} and I work as a {identity.occupation}.</li>
         {identity.hobbies.length >= 2 &&
-            <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+            <li class="text-orange font-bold list-inside list-disc">Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
         }
     </ul>
     <p>My skills are:</p>
-    <ul>
-        {skills.map((skill) => <li class="skill">{skill}</li>)}
+    <ul class="px-7">
+        {skills.map((skill) => <li class="text-orange font-bold uppercase list-inside list-disc">{skill}</li>)}
     </ul>
 
     {happy && <p>I am happy to be learning Astro!</p>}
