@@ -2,12 +2,32 @@
 import Navigation from "./Navigation.astro";
 import Hamburger from "./Hamburger.astro";
 import ThemeIcon from './ThemeIcon.astro';
+
+// Import menu.json
+import menuDatas from '../data/menu.json'
+
+// Navigation links
+const mainMenu = menuDatas
 ---
 
 <header>
-    <nav>
-        <Hamburger />
+    <nav class="relative flex items-center justify-between p-4">
+        <Hamburger id="menu-toggle" />
+        <Navigation menu={mainMenu} id="menu-container"/>
         <ThemeIcon />
-        <Navigation/>
     </nav>
 </header>
+
+<script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu-container');
+
+    if (!menuToggle || !menu) {
+        throw new Error('Menu toggle or menu not found');
+    }
+    
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+    });
+</script>

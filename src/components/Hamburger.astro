@@ -1,8 +1,9 @@
 ---
-
+const {id} = Astro.props
 ---
-<div class="max-sm:block sm:hidden pr-5 cursor-pointer">
-    <span class="block w-10 h-5 mb-2.5 bg-purple"></span>
-    <span class="block w-10 h-5 mb-2.5 bg-purple"></span>
-    <span class="block w-10 h-5 mb-2.5 bg-purple"></span>
+<div id={id} class="md:hidden pr-5 cursor-pointer">
+    <span class="block w-10 h-5 mb-2.5 bg-brand"></span>
+    <span class="block w-10 h-5 mb-2.5 bg-brand"></span>
+    <span class="block w-10 h-5 mb-2.5 bg-brand"></span>
 </div>
+

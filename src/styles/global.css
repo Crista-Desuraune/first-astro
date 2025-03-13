@@ -2,7 +2,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-    --color-purple: #4c1d95;
+    /* --color-brand: #4c1d95; */
+    --color-brand: #4c1d95;
     --color-orange: #ff9776;
     --color-light:#f1f5f9;
     --color-dark:#0d0950;

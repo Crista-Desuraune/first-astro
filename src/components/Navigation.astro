@@ -1,10 +1,23 @@
 ---
 import "../styles/global.css";
+
+type MenuItemType = {
+    url: string | URL | null | undefined,
+    label: string | unknown,
+}
+
+// Recuperer les props passées a notre composant
+const { id, menu } = Astro.props;
+
 ---
 
-<div class="max-sm:hidden  text-purple dark:text-white w-full left-12 m-0 flex items-center justify-center">
-    <a class="block font-bold hover:bg-orange focus:bg-orange uppercase text-center text-xl py-3.5 px-20" href="/">Home</a>
-    <a class="block font-bold hover:bg-orange focus:bg-orange uppercase text-center text-xl py-3.5 px-20" href="/about/">About</a>
-    <a class="block font-bold hover:bg-orange focus:bg-orange uppercase text-center text-xl py-3.5 px-20" href="/blog/">Blog</a>
-    <a class="block font-bold hover:bg-orange focus:bg-orange uppercase text-center text-xl py-3.5 px-20" href="/tags/">Étiquettes</a>
+<div id={id} class="hidden md:flex absolute md:static top-full left-0 text-brand dark:text-white w-full  m-0 flex-col md:flex-row bg-amber-50 md:bg-transparent items-center justify-center">
+
+    {menu.map((item: MenuItemType ) => {
+        return (
+            <a class="block font-bold hover:bg-orange focus:bg-orange uppercase text-center text-xl py-3.5 px-20" href={item.url}>
+                {item.label}
+            </a>
+        )
+    })}
 </div>
